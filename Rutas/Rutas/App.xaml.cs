@@ -1,4 +1,5 @@
 ﻿using System;
+using Rutas.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace Rutas
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ClientsPage());
         }
 
         protected override void OnStart()

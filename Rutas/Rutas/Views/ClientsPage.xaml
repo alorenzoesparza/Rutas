@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Rutas.Views.ClientsPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Clients">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Clients}"
+            Padding="5">
+            <ListView
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding Refrescar}"
+                ItemsSource="{Binding Clients}"
+                RefreshCommand="{Binding ComandoRefrescar}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    Grid.Column="0"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding NombreCompleto}"
+                                    VerticalOptions="Center">
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
